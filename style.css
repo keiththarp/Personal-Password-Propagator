@@ -1,3 +1,30 @@
+
+h3 {
+  font-size: 20px;
+  color: black;
+}
+
+input[type="range"] {
+  width:90%;
+}
+#lengthDisplay {
+  font-size: 24px;
+  font-weight: bold;
+  color: #0169D9;
+  padding: 0 25px;
+}
+
+#passwordDisplay {
+  text-align: center;
+}
+
+div.character-selector {
+  text-align: left;
+}
+
+/* Provided homework code below for reference. */
+
+/* 
 *,
 *::before,
 *::after {
@@ -134,4 +161,4 @@ button[disabled] {
   .btn {
     font-size: 0.8rem;
   }
-}
+} */
