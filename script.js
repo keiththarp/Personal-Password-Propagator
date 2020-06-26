@@ -1,8 +1,8 @@
 
 // Setting strings for possible character types.
-const lowerCaseString = "abcdefghijklmnopqrstuvwxyz"
-const upperCaseString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-const numericString = "1234567890"
+const lowerCaseString = "abcdefghijklmnopqrstuvwxyz";
+const upperCaseString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const numericString = "1234567890";
 const specialCharString = `!"#$%&'(\`)*+,-./:;<=>?@[\\]^_{|}~`;
 
 // converting character strings to arrays.
@@ -12,19 +12,22 @@ const numericArray = numericString.split("");
 const specialCharArray = specialCharString.split("");
 
 // Initiate the chosen password characters array to be filled by checkboxes.
-let passwordArray = []
+let passwordArray = [];
+
+let randomMax = 0;
 
 // Activating the button
 let generateBtn = document.querySelector("#passwordGeneratorButton");
-// generateBtn.addEventListener("click", displayPasswordResults);
 
-generateBtn.addEventListener('click',() => {    
-  displayPasswordResults();
-  genCharArray();    
+// Button calls the following functions to build the password.
+generateBtn.addEventListener('click', () => {
+  genCharArray();
+  passwordGenerator();
+  displayPasswordResults()
 });
 
+// Check the checkboxes and build the character array.
 function genCharArray() {
-  // let checkedBoxes = document.querySelectorAll('input[name="charType"]:checked');
   if (document.getElementById("charType0").checked) {
     passwordArray = passwordArray.concat(lowerCaseArray);
   }
@@ -37,7 +40,9 @@ function genCharArray() {
   if (document.getElementById("charType3").checked) {
     passwordArray = passwordArray.concat(specialCharArray);
   }
-  console.log(passwordArray);
+  randomMax = passwordArray.length;
+  console.log(randomMax);
+
 }
 
 // Live feedback display for user selected password length.
@@ -51,20 +56,23 @@ let passwordLength = document.getElementById("passLength").value;
 
 // initiate userPassword variable
 let userPassword = "";
-let randomMax = passwordArray.length;
 
-// This loop will build the password
-for (i = 0; i < passwordLength; i++) {
-  let randomSelection = Math.floor(Math.random() * randomMax);
-  let passwordChar = passwordArray[randomSelection];
+function passwordGenerator() {
+  // This loop will build the password
+  for (i = 0; i < passwordLength; i++) {
+    let randomSelection = Math.floor(Math.random() * randomMax);
+    let passwordChar = passwordArray[randomSelection];
 
-  // add characters to userPassword
-  userPassword = userPassword.concat(passwordChar);
+    // add characters to userPassword
+    userPassword = userPassword.concat(passwordChar);
+  }
 }
 // Display the password
 function displayPasswordResults() {
   document.getElementById("passwordDisplay").innerHTML = userPassword;
   console.log(passwordLength);
+  console.log(passwordArray);
+  console.log(userPassword);
 }
 
 
