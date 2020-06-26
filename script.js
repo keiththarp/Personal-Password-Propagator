@@ -1,30 +1,47 @@
 
-
 // Setting strings for possible character types.
-let specialCharString = `!"#$%&'(\`)*+,-./:;<=>?@[\\]^_{|}~`;
-let numericString = "1234567890"
-let lowerCaseString = "abcdefghijklmnopqrstuvwxyz"
-let upperCaseString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+const lowerCaseString = "abcdefghijklmnopqrstuvwxyz"
+const upperCaseString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+const numericString = "1234567890"
+const specialCharString = `!"#$%&'(\`)*+,-./:;<=>?@[\\]^_{|}~`;
 
 // converting character strings to arrays.
-let specialCharArray = specialCharString.split("");
-let numericArray = numericString.split("");
-let lowerCaseArray = lowerCaseString.split("");
-let upperCaseArray = upperCaseString.split("");
+const lowerCaseArray = lowerCaseString.split("");
+const upperCaseArray = upperCaseString.split("");
+const numericArray = numericString.split("");
+const specialCharArray = specialCharString.split("");
 
-// base array to build password array onto
-let baseArray = [];
+// Initiate the chosen password characters array to be filled by checkboxes.
+let passwordArray = []
 
 // Activating the button
 let generateBtn = document.querySelector("#passwordGeneratorButton");
-generateBtn.addEventListener("click", displayPasswordResults);
+// generateBtn.addEventListener("click", displayPasswordResults);
 
-// This needs to accept user selections after .concat
-// Building the password array
-let passwordArray = baseArray.concat(numericArray, lowerCaseArray, specialCharArray, upperCaseArray);
+generateBtn.addEventListener('click',() => {    
+  displayPasswordResults();
+  genCharArray();    
+});
+
+function genCharArray() {
+  // let checkedBoxes = document.querySelectorAll('input[name="charType"]:checked');
+  if (document.getElementById("charType0").checked) {
+    passwordArray = passwordArray.concat(lowerCaseArray);
+  }
+  if (document.getElementById("charType1").checked) {
+    passwordArray = passwordArray.concat(upperCaseArray);
+  }
+  if (document.getElementById("charType2").checked) {
+    passwordArray = passwordArray.concat(numericArray);
+  }
+  if (document.getElementById("charType3").checked) {
+    passwordArray = passwordArray.concat(specialCharArray);
+  }
+  console.log(passwordArray);
+}
 
 // Live feedback display for user selected password length.
-function genPass() {
+function genPassLength() {
   passwordLength = document.getElementById("passLength").value;
   document.getElementById("lengthDisplay").innerHTML = " " + passwordLength;
 }
@@ -37,43 +54,18 @@ let userPassword = "";
 let randomMax = passwordArray.length;
 
 // This loop will build the password
-  for(i = 0; i < passwordLength; i++) {
-    let randomSelection = Math.floor(Math.random() * randomMax);
-    let passwordChar = passwordArray[randomSelection];
+for (i = 0; i < passwordLength; i++) {
+  let randomSelection = Math.floor(Math.random() * randomMax);
+  let passwordChar = passwordArray[randomSelection];
 
-    // add characters to userPassword
-    userPassword = userPassword.concat(passwordChar);
-  }
-  // Display the password
-  function displayPasswordResults() {
+  // add characters to userPassword
+  userPassword = userPassword.concat(passwordChar);
+}
+// Display the password
+function displayPasswordResults() {
   document.getElementById("passwordDisplay").innerHTML = userPassword;
-  }
-
-// working on retrieving and validating the checkboxes.
-
-//   let arrayBuild = null; 
-// for(let i = 0; i < 4; i++){
-//   let userParameters = document.getElementsById('characterType' + i);
-//       if(userParameters.checked){
-//         arrayBuild = userParameters[i].value;
-//            break;
-//       }
-// }
-
-// function testCheckbox(oCheckbox)
-// {
-//     var checkbox_val = oCheckbox.value;
-//     if (oCheckbox.checked == true)
-//     {
-//         alert("Checkbox with name = " + oCheckbox.name + " and value =" +
-//                 checkbox_val + " is checked");
-//     }
-//     else
-//     {
-//         alert("Checkbox with name = " + oCheckbox.name + " and value =" +
-//               checkbox_val + " is not checked");
-//     }
-// }
+  console.log(passwordLength);
+}
 
 
 // *** NOTES ***
