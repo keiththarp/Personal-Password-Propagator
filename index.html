@@ -22,8 +22,10 @@
         <div class="col-sm-10 col-md-8 col-lg-6 mt-3">
           <div class="card bg-white text-secondary p-2">
             <!-- <img src="" class="card-img-top border border-dark border-rounded" alt="..."> -->
+            <!-- <form id="myForm"> -->
             <textarea class="form-control" id="passwordDisplay" rows="3" placeholder="Your Secure Password"
               aria-label="Generated Password"></textarea>
+            <!-- </form> -->
             <div class="card-body">
               <div>
                 <h3>Choose password length.</h3>
@@ -36,25 +38,25 @@
               <div class="character-selector pt-3">
                 <h3>Choose character types.</h3>
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" name="charType" value="lowerCaseArray" id="charType0">
+                  <input class="form-check-input" type="checkbox" name="charType" id="charType0">
                   <label class="form-check-label" for="characterType0">
                     Lower case
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" name="charType" value="upperCaseArray" id="charType1">
+                  <input class="form-check-input" type="checkbox" name="charType" id="charType1">
                   <label class="form-check-label" for="characterType1">
                     Upper case
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" name="charType" value="numericArray" id="charType2">
+                  <input class="form-check-input" type="checkbox" name="charType" id="charType2">
                   <label class="form-check-label" for="characterType2">
                     Numbers
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" name="charType" value="specialCharArray" id="charType3">
+                  <input class="form-check-input" type="checkbox" name="charType" id="charType3">
                   <label class="form-check-label" for="characterType3">
                     Special Characters
                   </label>
@@ -62,7 +64,7 @@
               </div>
               <p class="card-text"></p>
               <button id="passwordGeneratorButton" class="btn btn-primary">Generate Password</button>
-
+             
             </div>
           </div>
         </div>

@@ -14,6 +14,7 @@ const specialCharArray = specialCharString.split("");
 // Initiate the chosen password characters array to be filled by checkboxes.
 let passwordArray = [];
 
+// Initiate array length variable
 let randomMax = 0;
 
 // Activating the button
@@ -21,10 +22,20 @@ let generateBtn = document.querySelector("#passwordGeneratorButton");
 
 // Button calls the following functions to build the password.
 generateBtn.addEventListener('click', () => {
+  // myFunction();
+  // clearPasswordDisplay();
   genCharArray();
   passwordGenerator();
   displayPasswordResults()
 });
+// these functions and there related calls were trying to deal with the stacking passwords.
+// function myFunction() {
+//   document.getElementById("myForm").reset();
+// }
+
+// function clearPasswordDisplay() {
+//   document.getElementById("passwordDisplay").innerHTML = "";
+// }
 
 // Check the checkboxes and build the character array.
 function genCharArray() {
@@ -40,6 +51,7 @@ function genCharArray() {
   if (document.getElementById("charType3").checked) {
     passwordArray = passwordArray.concat(specialCharArray);
   }
+  console.log(passwordArray)
   randomMax = passwordArray.length;
   console.log(randomMax);
 
@@ -60,6 +72,11 @@ let userPassword = "";
 function passwordGenerator() {
   // This loop will build the password
   for (i = 0; i < passwordLength; i++) {
+    if (passwordArray.length === 0) {
+      alert("Select at least one character set.");
+      clearPasswordDisplay();
+      return;
+    }
     let randomSelection = Math.floor(Math.random() * randomMax);
     let passwordChar = passwordArray[randomSelection];
 
@@ -67,6 +84,7 @@ function passwordGenerator() {
     userPassword = userPassword.concat(passwordChar);
   }
 }
+
 // Display the password
 function displayPasswordResults() {
   document.getElementById("passwordDisplay").innerHTML = userPassword;
@@ -74,7 +92,6 @@ function displayPasswordResults() {
   console.log(passwordArray);
   console.log(userPassword);
 }
-
 
 // *** NOTES ***
 
