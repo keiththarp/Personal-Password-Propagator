@@ -22,75 +22,69 @@ let generateBtn = document.querySelector("#passwordGeneratorButton");
 
 // Button calls the following functions to build the password.
 generateBtn.addEventListener('click', () => {
-  // myFunction();
-  // clearPasswordDisplay();
   genCharArray();
-  passwordGenerator();
-  displayPasswordResults()
 });
-// these functions and there related calls were trying to deal with the stacking passwords.
-// function myFunction() {
-//   document.getElementById("myForm").reset();
-// }
-
-// function clearPasswordDisplay() {
-//   document.getElementById("passwordDisplay").innerHTML = "";
-// }
-
-// Check the checkboxes and build the character array.
-function genCharArray() {
-  if (document.getElementById("charType0").checked) {
-    passwordArray = passwordArray.concat(lowerCaseArray);
+    
+    // Check the checkboxes and build the character array.
+    function genCharArray() {
+      if (document.getElementById("charType0").checked) {
+        passwordArray = passwordArray.concat(lowerCaseArray);
+      }
+      if (document.getElementById("charType1").checked) {
+        passwordArray = passwordArray.concat(upperCaseArray);
+      }
+      if (document.getElementById("charType2").checked) {
+        passwordArray = passwordArray.concat(numericArray);
+      }
+      if (document.getElementById("charType3").checked) {
+        passwordArray = passwordArray.concat(specialCharArray);
+      }
+      randomMax = passwordArray.length;
+      displayPasswordResults()
   }
-  if (document.getElementById("charType1").checked) {
-    passwordArray = passwordArray.concat(upperCaseArray);
+  
+  // Live feedback display for user selected password length.
+  function genPassLength() {
+    passwordLength = document.getElementById("passLength").value;
+    document.getElementById("lengthDisplay").innerHTML = " " + passwordLength;
   }
-  if (document.getElementById("charType2").checked) {
-    passwordArray = passwordArray.concat(numericArray);
-  }
-  if (document.getElementById("charType3").checked) {
-    passwordArray = passwordArray.concat(specialCharArray);
-  }
-  console.log(passwordArray)
-  randomMax = passwordArray.length;
-  console.log(randomMax);
+  
+  // Retrieving the password length.
+  let passwordLength = document.getElementById("passLength").value;
 
-}
-
-// Live feedback display for user selected password length.
-function genPassLength() {
-  passwordLength = document.getElementById("passLength").value;
-  document.getElementById("lengthDisplay").innerHTML = " " + passwordLength;
-}
-
-// Retrieving the password length.
-let passwordLength = document.getElementById("passLength").value;
-
-// initiate userPassword variable
-let userPassword = "";
+  // initializing display variable.
+  let passwordEl = document.getElementById("passwordDisplay");
 
 function passwordGenerator() {
+  let userPassword = [];
   // This loop will build the password
   for (i = 0; i < passwordLength; i++) {
+    // Validate that user has selected at least one character set
     if (passwordArray.length === 0) {
-      alert("Select at least one character set.");
-      clearPasswordDisplay();
+      // alert("Select at least one character set."); 
       return;
     }
-    let randomSelection = Math.floor(Math.random() * randomMax);
-    let passwordChar = passwordArray[randomSelection];
+    
+    let randomIndex = Math.floor(Math.random() * randomMax);
+    let passwordChar = passwordArray[randomIndex];
 
     // add characters to userPassword
-    userPassword = userPassword.concat(passwordChar);
+    userPassword.push(passwordChar);
   }
+  return userPassword.join("")
 }
 
 // Display the password
 function displayPasswordResults() {
-  document.getElementById("passwordDisplay").innerHTML = userPassword;
-  console.log(passwordLength);
-  console.log(passwordArray);
-  console.log(userPassword);
+  const password = passwordGenerator();
+
+  // dealing with display of "undefined" when no character set is chosen/
+  if (passwordArray.length === 0) {
+    passwordEl.innerHTML = "!- Select at least one character set -!";
+    return;
+  }
+  //print the password to the screen.
+  passwordEl.value = password;
 }
 
 // *** NOTES ***

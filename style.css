@@ -7,9 +7,9 @@ h3 {
 input[type="range"] {
   width:90%;
 }
-/* textarea {
+textarea {
   resize: none;
-} */
+}
 
 #lengthDisplay {
   font-size: 24px;
