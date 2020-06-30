@@ -11,22 +11,19 @@ const upperCaseArray = upperCaseString.split("");
 const numericArray = numericString.split("");
 const specialCharArray = specialCharString.split("");
 
-// Initiate the chosen password characters array to be filled by checkboxes.
-let passwordArray = [];
-
-// Initiate array length variable
-let randomMax = 0;
-
 // Activating the button
 let generateBtn = document.querySelector("#passwordGeneratorButton");
 
-// Button calls the following functions to build the password.
-generateBtn.addEventListener('click', () => {
-  genCharArray();
-});
+// Button click starts the password build process.
+generateBtn.addEventListener('click', genCharArray);
+
+// Initiate the chosen password characters array to be filled by checkboxes.
+let passwordArray = [];
     
-    // Check the checkboxes and build the character array.
+    // Assess the checkboxes and build the character array.
     function genCharArray() {
+      //Clear the array
+      passwordArray = [];
       if (document.getElementById("charType0").checked) {
         passwordArray = passwordArray.concat(lowerCaseArray);
       }
@@ -39,7 +36,6 @@ generateBtn.addEventListener('click', () => {
       if (document.getElementById("charType3").checked) {
         passwordArray = passwordArray.concat(specialCharArray);
       }
-      randomMax = passwordArray.length;
       displayPasswordResults()
   }
   
@@ -59,13 +55,8 @@ function passwordGenerator() {
   let userPassword = [];
   // This loop will build the password
   for (i = 0; i < passwordLength; i++) {
-    // Validate that user has selected at least one character set
-    if (passwordArray.length === 0) {
-      // alert("Select at least one character set."); 
-      return;
-    }
     
-    let randomIndex = Math.floor(Math.random() * randomMax);
+    let randomIndex = Math.floor(Math.random() * passwordArray.length);
     let passwordChar = passwordArray[randomIndex];
 
     // add characters to userPassword
@@ -80,11 +71,13 @@ function displayPasswordResults() {
 
   // dealing with display of "undefined" when no character set is chosen/
   if (passwordArray.length === 0) {
+    passwordEl.classList.add('alert'); 
     passwordEl.innerHTML = "!- Select at least one character set -!";
     return;
   }
   //print the password to the screen.
-  passwordEl.value = password;
+  passwordEl.classList.remove('alert');
+  passwordEl.innerHTML = password;
 }
 
 // *** NOTES ***

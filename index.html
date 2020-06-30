@@ -13,56 +13,68 @@
 <body>
   <!-- Background container -->
   <div class="container-sm bg-light mt-sm-5 pb-5 mb-5">
+
     <!-- Card container -->
     <main class="text-center">
       <h1 class="pt-3 pt-sm-5">Password Generator</h1>
       <hr class="border border-dark">
+      
       <!-- Password Generator card -->
       <div class="row d-flex justify-content-center">
         <div class="col-sm-10 col-md-8 col-lg-6 mt-3">
           <div class="card bg-white text-secondary p-2">
-            <!-- <img src="" class="card-img-top border border-dark border-rounded" alt="..."> -->
-            <!-- <form id="myForm"> -->
+
+            <!-- This is the textArea to display the generated password-->
             <textarea class="form-control" id="passwordDisplay" rows="4" placeholder="Your Secure Password"
               aria-label="Generated Password"></textarea>
-            <!-- </form> -->
+          
             <div class="card-body">
+
               <div>
                 <h3>Choose password length.</h3>
                 <!--input type "range" used to place a slider with min/max parameter avoiding need for validation. oninput calls function to live display selection.-->
-                <input type="range" id="passLength" name="passLength" min="8" max="128" oninput="genPassLength()"><span
-                  id="lengthDisplay">68</span>
+                <input type="range" id="passLength" min="8" max="128" oninput="genPassLength()"><span id="lengthDisplay">68</span>
               </div>
-              <!--Checkboxes for character selection-->
 
+              <!--Checkboxes for character selection-->
               <div class="character-selector pt-3">
                 <h3>Choose character sets.</h3>
+
+                <!--Lower case checkbox-->
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" name="charType" id="charType0">
+                  <input class="form-check-input" type="checkbox" id="charType0">
                   <label class="form-check-label" for="characterType0">
                     Lower case
                   </label>
                 </div>
+
+                <!--Upper case checkbox-->
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" name="charType" id="charType1">
+                  <input class="form-check-input" type="checkbox" id="charType1">
                   <label class="form-check-label" for="characterType1">
                     Upper case
                   </label>
                 </div>
+
+                <!--Numbers checkbox-->
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" name="charType" id="charType2">
+                  <input class="form-check-input" type="checkbox" id="charType2">
                   <label class="form-check-label" for="characterType2">
                     Numbers
                   </label>
                 </div>
+
+                <!--Special characters checkbox-->
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" name="charType" id="charType3">
+                  <input class="form-check-input" type="checkbox" id="charType3">
                   <label class="form-check-label" for="characterType3">
                     Special Characters
                   </label>
                 </div>
+
               </div>
-              <p class="card-text"></p>
+              
+              <!--Generator button-->
               <button id="passwordGeneratorButton" class="btn btn-primary">Generate Password</button>
              
             </div>
@@ -71,47 +83,7 @@
     </main>
   </div>
 
-
   <script src="script.js"></script>
 </body>
 
 </html>
-
-
-
-<!-- Provided homework code below for reference. -->
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Password Generator</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Password Generator</h1>
-      </header>
-      <div class="card">
-        <div class="card-header">
-          <h2>Generate a Password</h2>
-        </div>
-        <div class="card-body">
-          <textarea
-            readonly
-            id="password"
-            placeholder="Your Secure Password"
-            aria-label="Generated Password"
-          ></textarea>
-        </div>
-        <div class="card-footer">
-          <button id="generate" class="btn">Generate Password</button>
-        </div>
-      </div>
-    </div>
-    <script src="script.js"></script>
-  </body>
-</html> -->
