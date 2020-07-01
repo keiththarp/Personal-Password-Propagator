@@ -17,6 +17,21 @@ textarea.alert {
   font-weight: bold;
 }
 
+div.copy-box {
+  position: relative;
+}
+div.copy-box img {
+  position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 4px;
+    cursor: pointer;
+}
+
+img.hideButton {
+  display: none;
+}
+
 #lengthDisplay {
   font-size: 24px;
   font-weight: bold;
