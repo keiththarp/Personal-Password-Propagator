@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Customizable Password Generator</title>
+  <title>Personal Password Propagator</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css" />
@@ -25,15 +25,20 @@
           <div class="card bg-white text-secondary p-2">
 
             <!-- This is the textArea to display the generated password-->
-            <textarea class="form-control" id="passwordDisplay" rows="4" placeholder="Your Secure Password"
-              aria-label="Generated Password"></textarea>
-          
+            <div class="copy-box">
+              <textarea readonly class="form-control" id="passwordDisplay" rows="4" placeholder="Your Secure Password"
+                aria-label="Generated Password"></textarea>
+              <img title="Copy password" onclick="copyPassword()" id="copyButton" class="hideButton"
+                src="assets/copy2clipboard.png" alt="copy icon">
+            </div>
+
             <div class="card-body">
 
               <div>
                 <h3>Choose password length.</h3>
                 <!--input type "range" used to place a slider with min/max parameter avoiding need for validation. oninput calls function to live display selection.-->
-                <input type="range" id="passLength" min="8" max="128" oninput="genPassLength()"><span id="lengthDisplay">68</span>
+                <input type="range" id="passLength" min="8" max="128" oninput="genPassLength()"><span
+                  id="lengthDisplay">68</span>
               </div>
 
               <!--Checkboxes for character selection-->
@@ -73,13 +78,14 @@
                 </div>
 
               </div>
-              
+
               <!--Generator button-->
-              <button id="passwordGeneratorButton" class="btn btn-primary">Generate Password</button>
-             
+              <button id="passwordGeneratorButton" class="btn btn-primary mt-3">Generate Password</button>
+
             </div>
           </div>
         </div>
+      </div>
     </main>
   </div>
 
