@@ -17,13 +17,14 @@ After several iterations I was able to clean up my code while learning more and 
 * I built four strings each containing one of the potential character options, I then converted those to arrays using the .split function. Once the selections are made by the user, the program concatenates those choices into a single array of potential characters.
 
 **Copy Icon**
-Once the password is displayed, a copy icon appears in the display window to help users easily get their new password to the clipboard.
+* Once the password is displayed, a copy icon appears in the display window to help users easily get their new password to the clipboard.
 
 ![Screen cap of copy icon](/assets/Personal-Password-Propagator-copy-button.png)
 
 **Mobile First design**
 * Using the BootStrap framework helps make the final product a mobile friendly app from the beginning.
-![screen cap of porfolio appearance.](/assets/Password-Propagator-iphone.png)
+
+![Photo of mobile presentation on device in action.](/assets/Password-Propagator-iphone.png)
 
 
 
