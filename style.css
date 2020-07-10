@@ -1,15 +1,17 @@
-
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
+
 h3 {
   font-size: 20px;
   color: black;
 }
 
 input[type="range"] {
-  width:90%;
+  width: 90%;
 }
+
+/* Remove the resize feature for cleaner look. */
 textarea {
   resize: none;
 }
@@ -20,15 +22,17 @@ textarea.alert {
   font-weight: bold;
 }
 
+/* Position for copy icon */
 div.copy-box {
   position: relative;
 }
+
 div.copy-box img {
   position: absolute;
-    right: 0;
-    bottom: 0;
-    margin: 4px;
-    cursor: pointer;
+  right: 0;
+  bottom: 0;
+  margin: 4px;
+  cursor: pointer;
 }
 
 img.hideButton {
@@ -38,7 +42,7 @@ img.hideButton {
 #lengthDisplay {
   font-size: 24px;
   font-weight: bold;
-  color: #0169D9;
+  color: #0169d9;
   padding: 0 25px;
 }
 
@@ -46,6 +50,7 @@ img.hideButton {
   text-align: center;
 }
 
+/* Getting the checkboxes aligned */
 div.character-selector {
   text-align: left;
 }

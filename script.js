@@ -1,4 +1,3 @@
-
 // Setting strings for possible character types.
 const lowerCaseString = "abcdefghijklmnopqrstuvwxyz";
 const upperCaseString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -15,15 +14,16 @@ const specialCharArray = specialCharString.split("");
 let generateBtn = document.querySelector("#passwordGeneratorButton");
 
 // Button click starts the password build process.
-generateBtn.addEventListener('click', genCharArray);
+generateBtn.addEventListener("click", genCharArray);
 
 // Initiate the chosen password characters array to be filled by checkboxes.
 let passwordArray = [];
 
 // Assess the checkboxes and build the character array.
 function genCharArray() {
-  //Clear the array
+  //Clear the array of prior use.
   passwordArray = [];
+
   if (document.getElementById("charType0").checked) {
     passwordArray = passwordArray.concat(lowerCaseArray);
   }
@@ -39,7 +39,7 @@ function genCharArray() {
   displayPasswordResults();
 }
 
-// Live feedback display for user selected password length.
+// Live feedback display for user selected password length, called by HTML.
 function genPassLength() {
   passwordLength = document.getElementById("passLength").value;
   document.getElementById("lengthDisplay").innerHTML = " " + passwordLength;
@@ -54,12 +54,10 @@ const passwordEl = document.getElementById("passwordDisplay");
 // initializing variable to help hide/display copy button
 const copyButton = document.getElementById("copyButton");
 
-
 function passwordGenerator() {
   let userPassword = [];
   // This loop will build the password
-  for (i = 0; i < passwordLength; i++) {
-
+  for (let i = 0; i < passwordLength; i++) {
     let randomIndex = Math.floor(Math.random() * passwordArray.length);
     let passwordChar = passwordArray[randomIndex];
 
@@ -75,23 +73,23 @@ function displayPasswordResults() {
 
   // dealing with display of "undefined" when no character set is chosen/
   if (passwordArray.length === 0) {
-    passwordEl.classList.add('alert');
+    passwordEl.classList.add("alert");
     passwordEl.innerHTML = "!- Select at least one character set -!";
     return;
   }
   //print the password to the screen.
-  passwordEl.classList.remove('alert');
-  copyButton.classList.remove('hideButton');
+  passwordEl.classList.remove("alert");
+  copyButton.classList.remove("hideButton");
   passwordEl.innerHTML = password;
 }
 
+// Select and copy function called by HTML.
 function copyPassword() {
   passwordEl.select();
   document.execCommand("copy");
 }
 
 // *** NOTES ***
-
 
 /* Program process:
 initiate userPassword variable

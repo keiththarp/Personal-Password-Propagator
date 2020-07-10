@@ -2,44 +2,42 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Personal Password Propagator</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body class="bg-dark">
   <!-- Background container -->
   <div class="container-sm bg-light mt-sm-5 pb-5 mb-5">
-
     <!-- Card container -->
     <main class="text-center">
       <h1 class="pt-3 pt-sm-5">Personal Password Propagator</h1>
-      <hr class="border border-dark">
+      <hr class="border border-dark" />
 
       <!-- Password Generator card -->
       <div class="row d-flex justify-content-center">
         <div class="col-sm-10 col-md-8 col-lg-6 mt-3">
           <div class="card bg-white text-secondary p-2">
-
             <!-- This is the textArea to display the generated password-->
             <div class="copy-box">
               <textarea readonly class="form-control" id="passwordDisplay" rows="4" placeholder="Your Secure Password"
-                aria-label="Generated Password"></textarea>
+                aria-label="Generated Password">
+                </textarea>
               <img title="Copy password" onclick="copyPassword()" id="copyButton" class="hideButton"
-                src="assets/copy2clipboard.png" alt="copy icon">
+                src="assets/copy2clipboard.png" alt="copy icon" />
             </div>
 
             <div class="card-body">
-
               <div>
                 <h3>Choose password length.</h3>
                 <!--input type "range" used to place a slider with min/max parameter avoiding need for validation. oninput calls function to live display selection.-->
-                <input type="range" id="passLength" min="8" max="128" oninput="genPassLength()"><span
-                  id="lengthDisplay">68</span>
+                <input type="range" id="passLength" min="8" max="128" oninput="genPassLength()" />
+                <span id="lengthDisplay">68</span>
               </div>
 
               <!--Checkboxes for character selection-->
@@ -48,7 +46,7 @@
 
                 <!--Lower case checkbox-->
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="charType0">
+                  <input class="form-check-input" type="checkbox" id="charType0" />
                   <label class="form-check-label">
                     Lower case
                   </label>
@@ -56,7 +54,7 @@
 
                 <!--Upper case checkbox-->
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="charType1">
+                  <input class="form-check-input" type="checkbox" id="charType1" />
                   <label class="form-check-label">
                     Upper case
                   </label>
@@ -64,7 +62,7 @@
 
                 <!--Numbers checkbox-->
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="charType2">
+                  <input class="form-check-input" type="checkbox" id="charType2" />
                   <label class="form-check-label">
                     Numbers
                   </label>
@@ -72,17 +70,17 @@
 
                 <!--Special characters checkbox-->
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="charType3">
+                  <input class="form-check-input" type="checkbox" id="charType3" />
                   <label class="form-check-label">
                     Special Characters
                   </label>
                 </div>
-
               </div>
 
               <!--Generator button-->
-              <button id="passwordGeneratorButton" class="btn btn-primary mt-3">Generate Password</button>
-
+              <button id="passwordGeneratorButton" class="btn btn-primary mt-3">
+                Generate Password
+              </button>
             </div>
           </div>
         </div>
